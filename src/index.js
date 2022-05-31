@@ -17,21 +17,31 @@ async function getWeather() {
     
     
     console.log(data);
-    console.log(data['name']);
+    console.log(data['coord']);
 
     city.innerText = data['name'];
     temp.innerText = `${Math.round(data['main']['temp'])}°C`;
     wind.innerText = `${data['wind']['speed']} m/s`;
     time.innerText = data['dt'];
 
-    return data['name'];
+    return data['coord'];
 }
 
 async function getTime() {
-    const response = await fetch(``)
+
+
+
+    const coord = await getWeather();
+    console.log(`${coord['lat']} that's the coords`);
+
+    const response = await fetch(`https://timeapi.io/api/Time/current/coordinate?latitude=${coord['lat']}&longitude=${coord['lon']}`, {mode: 'cors'});
+    const time = await response.json();
+    console.log(time);
 }
 
 getWeather();
+
+getTime();
 
 
 
