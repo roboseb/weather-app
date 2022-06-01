@@ -5,11 +5,32 @@
         <title>Seb's Weather App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="main.bundle.js"></script></head>
     <body>
+
+
+        <div id='container'>
+            <div id='sky'></div>
+
+            <div id='cloudbox'></div>
+
+            <div id='sunmoonbox'>
+                <img id='moon' src="images/moon.png" alt="A sleepy moon">
+                <img id='sun' src="images/sun.png" alt="A smiling sun">
+                
+            </div>
+            <img id='backdrop' src="images/backdrop.png" alt="A grassy seaside scene">
+
+            
+
+            
+        </div>
+
         <div id='info'>
             <h1 id='city'></h1>
             <h1 id='temp'></h1>
-            <h2 id='wind'></h2>
+            <h2 id='clouds'></h2>
             <h1 id='time'></h1>
+            <input id='search' type="text">
+            <button id='searchbtn'>Search</button>
         </div>
     </body>
 </html>

@@ -14,6 +14,16 @@ May 30th, 2022
 
     This weather app will be simple, but handsome. That is my plan. Since I went overboard with the last API thing, I should be able to get this weather app set up faster than I could have otherwise.
 
+May 31st, 2022
+
+    Found what should be an elegeant solution for adding current time based on city name. Having issues with CORS though. I think it's only a problem because of webpack dev server, so I'm setting up the github pages to try that out.
+
+    Not how I was intended to use that other API. Some sort of backend I guess. Switched to a different API with similar usage and it works great now.
+
+    Tweaking everything to work just right has been a bit of a pain. I also filled an entire sketchbook page with notes regarding calculating moon/sun position and backdrop brightness in relation to the selected time. This is because I've become bad at math since high school. Still got it to work, and other than the slowdown, which I may be able to fix, it works great.
+
+    Added clouds as well today. Wasn't sure how I was gonna animate them at first, but the first setup I tried actually looks pretty cool, or at least on theme for the site.
+
 ---To-Do---
 
 -Desktop media query (mobile first)
