@@ -24,9 +24,19 @@ May 31st, 2022
 
     Added clouds as well today. Wasn't sure how I was gonna animate them at first, but the first setup I tried actually looks pretty cool, or at least on theme for the site.
 
+June 1st, 2022
+
+    Today's plan. Finish cloud logic, add darkening of the background based on cloudiness as well as time of day, and style the weather info/input. Add unit conversion button, and fix widescreen view. All in all, things that should be easy to implement as most of the logic is done, and all the assets are done. Not quite sure how I'm going to the rain though.
+
 ---To-Do---
 
 -Desktop media query (mobile first)
 -F to C to F
--big background representing time, with darkness/stars/moon/sun
+DONE-big background representing time, with darkness/stars/moon/sun
 -dynamic clouds
+-style weather info
+-fix wide desktop layout
+-add rain effects.
+-add stars?
+-city error message
+-fix cloud positioning

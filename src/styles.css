@@ -41,17 +41,25 @@ body {
 #cloudbox {
     width: 100vw;
     height: 20vh;
-    background-color: red;
     position: absolute;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #cloudbox>img {
-    position: absolute;
+
     transition: all 2s;
-    right: -100%;
-    top: 0%;
+    transform: translateX(120vw);
+    border-left: 5px solid black;
+    border-top: 5px solid black;
+}
+
+.hiddencloud {
+    display: none;
+    
 }
 
 #sunmoonbox {
@@ -81,4 +89,24 @@ body {
 #moon {
     margin-bottom: 20px;
     filter: drop-shadow(0px 0px 40px rgba(254, 255, 206, 0.507));
+}
+
+#rainbox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height : 85vh;
+
+}
+
+#raindrop {
+    height: 60px;
+    animation: rain 2s infinite;
+    position: absolute;
+}
+
+@keyframes rain {
+    from {transform: translate(0, 0)}
+    to {transform: translate(20px, 100vh);}
 }

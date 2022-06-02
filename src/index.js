@@ -1,6 +1,6 @@
 import './styles.css';
 
-let cityName = 'saskatoon';
+let cityName = 'joinville';
 
 //Set animation timing for JS and CSS.
 const aniTime = 5000;
@@ -14,10 +14,14 @@ const Clouds = (() => {
     const cloudBox = document.getElementById('cloudbox');
     const cloudArray = [];
 
-
     //Show clouds based on percipitation and cloudiness.
     const makeClouds = (percentage, weather) => {
         
+        for (let i = 0; i < 7; i++) {
+            makeCloud(weather);
+        }
+
+
         //Reset cloud position to hidden.
         cloudArray.forEach(cloud => {
             cloud.style.right = '-1000px';
@@ -25,22 +29,40 @@ const Clouds = (() => {
 
 
         //Set the amount of clouds based on the cloudiness percentage.
-        const cloudAmount = Math.floor(percentage * 7 / 100) + 1;
-        //console.log(cloudAmount);
+        //const cloudAmount = Math.floor(percentage * 7 / 100);
+        const cloudAmount = 7;
+
+        
 
         setTimeout(() => {
             //Move clouds equal to cloudAmount into frame.
             for (let i = 0; i < cloudAmount; i++) {
+                //Skip trying to add an eighth cloud.
                 if (i === 7) continue;
 
-        
+                //Show cloud.
+                cloudArray[i].classList.remove('hiddencloud');
 
-                const offsetX = (Math.floor(Math.random() * 5)) + (i * (100 / cloudAmount));
+                //Evenly but randomly place clouds.
+                const flip = Math.floor(Math.random() * 2);
+                console.log(flip);
+                
+                let offsetX;
+                if (flip === 0) {
+                    offsetX = Math.floor(Math.random() * 50);
+                } else {
+                    offsetX = Math.floor(Math.random() * -50);
+                }
+
+                console.log(offsetX);
+
                 const offsetY = Math.floor(Math.random() * 50);
-
-
-                cloudArray[i].style.right = `${offsetX}%`;
-                cloudArray[i].style.top = `${offsetY}%`;
+                setTimeout(() => {
+                    //cloudArray[i].style.transform = `translateX(${offsetX}px)`;
+                    cloudArray[i].style.transform = `translateY(${offsetY}px)`;
+                }, 200);
+                
+                
             }
         }, 1000);
 
@@ -68,23 +90,15 @@ const Clouds = (() => {
 
         cloudBox.appendChild(cloud);
         cloudArray.push(cloud);
+        cloud.classList.add('hiddencloud');
     }
 
-    for (let i = 0; i < 7; i++) {
-        makeCloud('rain');
-    }
+    
 
-    return {makeClouds}
+    return {makeClouds, cloudArray}
 })();
 
-
-Clouds.makeClouds(1, 'rain');
-
-setTimeout(() => {
-    Clouds.makeClouds(100, 'rain');
-}, 4000);
-
-
+//Fetch weather data and return coordinates of selected location.
 async function getWeather() {
     
 
@@ -102,6 +116,56 @@ async function getWeather() {
     city.innerText = data['name'];
     temp.innerText = `${Math.round(data['main']['temp'])}°C`;
     clouds.innerText = `Clouds: ${data['clouds']['all']} %`;
+
+    //Animate clouds based on cloudiness.
+    const cloudiness = data['clouds']['all'];
+    Clouds.makeClouds(cloudiness, 'rain');
+
+    //Animate rain based on weather data.
+    const mainWeather = data['weather'][0]['main'];
+
+    //Remove raindrops from the DOM.
+    const drops = Array.from(document.querySelectorAll('#raindrop'));
+    drops.forEach(drop => {
+        drop.remove();
+    });
+
+    if (mainWeather === 'Rain') {
+        //Add raindrops to the DOM.
+        setTimeout(() => {
+            const rainBox = document.getElementById('rainbox');
+            if (mainWeather === 'Rain') {
+                
+                //Add raindrops based on cloud amount.
+                Clouds.cloudArray.forEach(cloud => {
+                    if (cloud.classList[0] === 'hiddencloud') {
+                        return;
+                    }
+
+                    const raindrop = document.createElement('img');
+    
+                    //Randomize raindrop delay.
+                    const randDelay = Math.random() * 2;
+                    raindrop.style.animation = `rain 2s infinite ${randDelay}s`;
+    
+                    setTimeout(() => {
+                        //Display the raindrop.
+                        raindrop.src = 'images/raindrop.png';
+                        raindrop.id = 'raindrop';
+                    }, randDelay * 1000);
+    
+    
+                    //Add the drop to the DOM based on cloud position.
+                    const rect = cloud.getBoundingClientRect();
+                    raindrop.style.top = `${rect.top - 75}px`;
+                    raindrop.style.left = `${rect.left + 75}px`;
+                    rainBox.appendChild(raindrop);
+                });
+            } else {
+    
+            }
+        }, 3000);
+    }
 
     return data['coord'];
 }
@@ -132,7 +196,13 @@ async function getTime() {
     const root = document.querySelector(':root');
     root.style.setProperty('--space-angle', `${rotation}deg`);
 
-    
+
+
+
+
+
+
+
     const backdrop = document.getElementById('backdrop');
     const sky = document.getElementById('sky');
 
@@ -152,7 +222,6 @@ async function getTime() {
 
 
 setTimeout(() => {
-    getWeather();
     getTime();
 }, 0);
 
@@ -164,7 +233,6 @@ const searchBar = document.getElementById('search');
 
 searchButton.addEventListener('click', () => {
     cityName = searchBar.value;
-    getWeather();
     getTime();
 });
 
