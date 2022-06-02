@@ -3,6 +3,27 @@ Weather app project for the Odin Project.
 
 ---Features---
 
+    -Get current weather data for anywhere on the planet!
+
+    -Search for a city, province (or territory or state), or country!
+
+    -Or continent apparently! just tried it. How useful could that possibly be?
+
+    -Switch from celsius to fahrenheit!
+
+    -Temperature, location, local time, and cloud % all displayed!
+
+    -Cute little sun/moon/clouds
+
+    -Time is displayed with sun/moon
+
+    -Cloud % shown with amount of clouds
+
+    -Scene brightness based on local time of selected location.
+
+    -Rain! Try typing in a city where it is currently raining.
+
+    -Responsive for desktop layouts. Not designed for mobile.
 
 ---Devlog---
 
@@ -28,15 +49,25 @@ June 1st, 2022
 
     Today's plan. Finish cloud logic, add darkening of the background based on cloudiness as well as time of day, and style the weather info/input. Add unit conversion button, and fix widescreen view. All in all, things that should be easy to implement as most of the logic is done, and all the assets are done. Not quite sure how I'm going to the rain though.
 
+June 2nd, 2022
+
+    Clouds basically work as intended. The only catch is that the animation for them is not perfect. I went way overboard for this project, so I'm moving on for now and may clean it up later. Only need to work on the UI now.
+
+    Oh, and go buy Stacklands on steam. It's $5. And it caused me to stay up so late that I could barely program yesterday.
+
+    Relatively quick and fun 2.5 day project, including drawing time. Somehow most of that time was spent fixing the damn clouds. Which still look jank. At some point, I'm gonna come back to these old projects and maybe fix minor things like that.
+
+
 ---To-Do---
 
--Desktop media query (mobile first)
--F to C to F
+DONE-Desktop media query (skip mobile first)
+DONE-F to C to F
 DONE-big background representing time, with darkness/stars/moon/sun
--dynamic clouds
--style weather info
--fix wide desktop layout
--add rain effects.
--add stars?
--city error message
--fix cloud positioning
+DONE-dynamic clouds
+DONE-style weather info
+DONE-fix wide desktop layout
+DONE-add rain effects.
+CANCEL-add stars?
+DONE-city error message
+DONE-fix cloud positioning
+CANCEL (no API data for this?)-display country and city

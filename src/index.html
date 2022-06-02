@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Seb's Weather App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="main.bundle.js"></script></head>
+        <link href="https://www.dafontfree.net/embed/bWluaS13YWt1d2FrdS1yZWd1bGFyJmRhdGEvOTEvbS8xNjY5OTEvbWluaS13YWt1d2FrdS5vdGY" rel="stylesheet" type="text/css"/>
     <body>
 
 
@@ -29,12 +30,19 @@
         </div>
 
         <div id='info'>
-            <h1 id='city'></h1>
             <h1 id='temp'></h1>
+            <h2 id='city'></h2>
+            <h3 id='time'></h3>
             <h2 id='clouds'></h2>
-            <h1 id='time'></h1>
-            <input id='search' type="text">
-            <button id='searchbtn'>Search</button>
+            <div id='searchbox'>
+                <input id='search' type="text" placeholder="City, state or country!">
+                <div id='btnbox'>
+                    <button id='searchbtn'>Search</button>
+                    <button id='unitbtn'>F</button>
+                </div>
+
+            </div>
+
         </div>
     </body>
 </html>
