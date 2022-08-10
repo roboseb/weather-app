@@ -15,7 +15,7 @@
 
 @font-face {
     font-family: wakuwaku;
-    src: url('/dist/mini-wakuwaku.otf');
+    src: url('/src/mini-wakuwaku.otf');
 }
 
 body {

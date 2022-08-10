@@ -1,9 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Output Management</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="main.bundle.js"></script></head>
-  <body>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <title>Seb's Weather App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="main.bundle.js"></script><script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
+        <link href="https://www.dafontfree.net/embed/bWluaS13YWt1d2FrdS1yZWd1bGFyJmRhdGEvOTEvbS8xNjY5OTEvbWluaS13YWt1d2FrdS5vdGY" rel="stylesheet" type="text/css"/>
+    <body>
+
+
+        <div id='container'>
+            <div id='sky'></div>
+
+            
+
+            <div id='sunmoonbox'>
+                <img id='moon' src=f8c844d571b1cb1b0ffb.png alt="A sleepy moon">
+                <img id='sun' src=eedceec4823039d380da.png alt="A smiling sun">
+                
+            </div>
+
+            <div id='rainbox'></div>
+            <div id='cloudbox'></div>
+
+            <img id='backdrop' src=261c33c42cb8f66424eb.png alt="A grassy seaside scene">
+
+
+
+            
+        </div>
+
+        <div id='info'>
+            <h1 id='temp'></h1>
+            <h2 id='city'></h2>
+            <h3 id='time'></h3>
+            <h2 id='clouds'></h2>
+            <div id='searchbox'>
+                <input id='search' type="text" placeholder="City, state or country!">
+                <div id='btnbox'>
+                    <button id='searchbtn'>Search</button>
+                    <button id='unitbtn'>F</button>
+                </div>
+
+            </div>
+
+        </div>
+    </body>
 </html>

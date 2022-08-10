@@ -97,7 +97,7 @@ const Clouds = (() => {
         
         //Set cloud src image to a random choice of the two.
         const flip = Math.floor(Math.random() * 2) + 1;
-        cloud.src = `images/cloud${flip}${rain}.png`;
+        cloud.src = require(`/src/images/cloud${flip}${rain}.png`);
       
 
         //Set cloud size randomly;
@@ -186,7 +186,7 @@ async function getWeather() {
     
                     setTimeout(() => {
                         //Display the raindrop.
-                        raindrop.src = 'images/raindrop.png';
+                        raindrop.src = require('/src/images/raindrop.png');
                         raindrop.id = 'raindrop';
                     }, randDelay * 1000);
     
